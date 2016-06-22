@@ -7,7 +7,7 @@ import "rxjs/Rx";
 @Injectable()
 export class ProductService {
     private headers: Headers;
-    private _apiUrl: string = "/app/mocks/";
+    private _apiUrl: string = "/mocks/";
     constructor(private _http: Http) {
         this.headers = new Headers({ 'Content-Type': 'application/json' });
     }

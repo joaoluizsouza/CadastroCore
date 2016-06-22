@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from './product.service';
 import { Product } from './product';
+import { ProductListComponent } from './productlist.component';
 
 @Component({
     moduleId: module.id,
     templateUrl: 'product.component.html',
-    providers:[ProductService]
+    providers:[ProductService],
+    directives:[ProductListComponent]
 })
 export class ProductComponent implements OnInit {
     public products: Product[] = [];

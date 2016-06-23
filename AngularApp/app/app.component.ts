@@ -3,12 +3,13 @@ import { HTTP_PROVIDERS } from '@angular/http';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductComponent } from './product/product.component';
+import { TopComponent } from './shared/top.component';
 
 @Component({
   moduleId: module.id,
   selector: 'my-app',
   templateUrl: 'app.component.html',
-  directives: [ROUTER_DIRECTIVES],
+  directives: [ROUTER_DIRECTIVES, TopComponent],
   providers: [
     HTTP_PROVIDERS,
     ROUTER_PROVIDERS

@@ -1,14 +1,21 @@
-<table>
+<table class="table table-hover">
     <thead>
         <tr>
-            <th>Id</th>
-            <th>Nome</th>
+            <th class="text-center">#</th>
+            <th class="text-center">Nome</th>
+            <th class="text-center"></th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let prod of products">
-            <td>{{prod.id}}</td>
-            <td>{{prod.name}}</td>
+            <td class="text-center">{{prod.id}}</td>
+            <td class="text-center">{{prod.name}}</td>      
+            <td class="text-center">
+                <div class="btn-group">
+                    <a class="btn btn-group btn-default btn-sm" (click)="onEdit(prod)">Edit</a>
+                    <a class="btn btn-group btn-danger btn-sm" (click)="onDelete(prod)">Delete</a>
+                </div>
+            </td>      
         </tr>
     </tbody>
 </table>

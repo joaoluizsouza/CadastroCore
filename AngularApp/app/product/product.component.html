@@ -1,7 +1,10 @@
 <h2>Produto</h2>
-<button (click)="onClick()">CLickMe</button>
-
-
-<product-list [products]="products">
-
+<a class="btn btn-success btn-lg pull-right">
+    Adicionar
+</a>
+<product-list 
+    [products]="products"
+    (_eventsEdit)="onEdit($event)"
+    (_eventsDelete)="onDelete($event)"
+    >
 </product-list>

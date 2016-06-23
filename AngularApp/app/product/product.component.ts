@@ -17,8 +17,13 @@ export class ProductComponent implements OnInit {
         this._productService.getProducts()
             .subscribe(data => this.products = data, error => console.log(error));
     }
-
     onClick(){
         console.log(this.products);
+    }
+    onEdit(_prod : Product){
+        console.log('Edit Component: ' + JSON.stringify(_prod));
+    }
+    onDelete(prod: Product){
+        console.log('Delete Component: ' + JSON.stringify(prod));
     }
 }

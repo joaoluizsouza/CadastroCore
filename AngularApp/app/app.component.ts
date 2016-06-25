@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ProductComponent, ProductDetailComponent } from './products';
+import { ProductComponent  } from './products/product/product.component';
+import { ProductDetailComponent  } from './products/product-detail/product-detail.component';
 import { TopComponent } from './shared/top.component';
 
 @Component({

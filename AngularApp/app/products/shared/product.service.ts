@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from "@angular/http";
-import { Product } from '../';
 import { Observable } from "rxjs/Observable";
 import "rxjs/Rx";
+
+import { Product } from '../shared/product.model';
 
 @Injectable()
 export class ProductService {
@@ -12,6 +13,7 @@ export class ProductService {
         this.headers = new Headers({ 'Content-Type': 'application/json' });
     }
     getProducts() {
+        console.log('Get');
         return this._http.get(this._apiUrl + "products.js")
             .map(res => res.json())
             .catch(this.throwError);

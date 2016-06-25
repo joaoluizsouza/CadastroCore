@@ -1,7 +1,8 @@
 import { NgForm } from '@angular/common';
 import { Component, OnInit} from '@angular/core';
 import { Router,RouteParams } from "@angular/router-deprecated";
-import { ProductService, Product } from '../';
+import { Product } from '../shared/product.model';
+import { ProductService } from '../shared/product.service';
 
 @Component({
     moduleId: module.id,

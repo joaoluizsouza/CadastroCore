@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService, Product,ProductListComponent  } from '../';
+import { Product } from '../shared/product.model';
+import { ProductListComponent  } from '../product-list/product-list.component';
+import { ProductService } from '../shared/product.service';
 import { Router } from "@angular/router-deprecated";
 
 @Component({

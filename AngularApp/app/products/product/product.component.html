@@ -2,9 +2,9 @@
 <a class="btn btn-success btn-lg pull-right">
     Adicionar
 </a>
-<product-list 
+<core-product-list 
     [products]="products"
-    (edit)="onEdit($event)"
-    (delete)="onDelete($event)"
+    (editEvent)="onEdit($event)"
+    (deleteEvent)="onDelete($event)"
     >
-</product-list>
+</core-product-list>

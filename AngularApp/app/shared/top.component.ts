@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router-deprecated';
+import { Component } from "@angular/core";
+import { ROUTER_DIRECTIVES } from "@angular/router-deprecated";
 
 @Component({
+    directives: [ROUTER_DIRECTIVES],
     moduleId: module.id,
-    selector: 'top-view',
-    templateUrl: 'top.component.html',
-    directives: [ROUTER_DIRECTIVES]
-})
-export class TopComponent implements OnInit {
-    constructor() { }
+    selector: "core-top-view",
+    templateUrl: "top.component.html"}
+)
 
-    ngOnInit() { }
-
+export class TopComponent {
 }

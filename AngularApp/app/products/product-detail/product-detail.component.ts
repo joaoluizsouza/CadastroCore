@@ -1,8 +1,7 @@
 import { NgForm } from '@angular/common';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Router,RouteParams } from "@angular/router-deprecated";
-import { ProductService } from './product.service';
-import { Product } from './Product';
+import { ProductService, Product } from '../';
 
 @Component({
     moduleId: module.id,
@@ -10,22 +9,17 @@ import { Product } from './Product';
     providers:[ProductService]
 })
 export class ProductDetailComponent implements OnInit {
-    @Input('product') public _product: Product;
-
+    private _product: Product;
+    
     active = true;
-    public model : Product;
-
-        
     constructor(private _routeParams: RouteParams, private _productService: ProductService, private _router: Router) { }
-
     ngOnInit() {
-        this.model = {name:"Joao",id:10,image:"",price:20};
+        this._product = {name:"Joao",id:10,image:"",price:20};
         let idProduct = <number><any>this._routeParams.get("id");
         //this._productService.getProduct(idProduct).subscribe(data => this._product = data, error => console.log(error));
      }
     goList(): void {
         this._router.navigate(["Product"]);
     }
-
-    get diagnostic() { return JSON.stringify(this.model); }
+    get diagnostic() { return JSON.stringify(this._product); }
 }

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from './product.service';
-import { Product } from './product';
-import { ProductListComponent } from './product-list.component';
+import { ProductService, Product,ProductListComponent  } from '../';
 import { Router } from "@angular/router-deprecated";
 
 @Component({

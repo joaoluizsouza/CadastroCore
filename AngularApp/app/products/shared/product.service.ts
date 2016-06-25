@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from "@angular/http";
-import { Product } from "./product";
+import { Product } from '../';
 import { Observable } from "rxjs/Observable";
 import "rxjs/Rx";
 
 @Injectable()
 export class ProductService {
     private headers: Headers;
-    private _apiUrl: string = "/mocks/";
+    private _apiUrl: string = "../../../mocks/";
     constructor(private _http: Http) {
         this.headers = new Headers({ 'Content-Type': 'application/json' });
     }

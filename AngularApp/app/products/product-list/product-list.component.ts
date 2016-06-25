@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Product } from './Product';
+import { Product } from '../';
 
 @Component({
     moduleId: module.id,

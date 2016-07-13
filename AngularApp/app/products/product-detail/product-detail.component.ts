@@ -15,13 +15,17 @@ export class ProductDetailComponent implements OnInit {
 
     constructor(private routeParams: RouteParams, private productService: ProductService, private router: Router) { }
     public ngOnInit() {
-        this.product = {id: 10, image: "", name: "Joao", price: 20};
-        // let idProduct = <number> <any> this.routeParams.get("id");
-        // this._productService.getProduct(idProduct).
-        // subscribe(data => this._product = data, error => console.log(error));
-     }
+        this.product = new Product();
+        let idProduct = <number> <any> this.routeParams.get("id");
+        this.productService.getProduct(idProduct).
+        subscribe(data => this.product = data, error => console.log(error));
+    }
     public goList(): void {
         this.router.navigate(["Product"]);
     }
-    get diagnostic() { return JSON.stringify(this.product); }
+    public onSubmit(): void{
+        this.product.id = <number> <any> this.routeParams.get("id");
+        this.productService.postProduct(this.product).
+        subscribe(data => console.log(data), error => console.log(error));
+    }
 }

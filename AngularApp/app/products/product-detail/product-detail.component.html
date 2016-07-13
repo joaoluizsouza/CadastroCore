@@ -1,6 +1,6 @@
-<h2>Detaiil</h2>
+<h2>Detail</h2>
 
-<form>
+<form (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="name">Nome</label>
     <input type="text" class="form-control" id="name" name="name" placeholder="Nome" [(ngModel)]="product.name">
@@ -15,7 +15,7 @@
     <p class="help-block">Example block-level help text here.</p>
   </div>
 
-  <button type="submit" class="btn btn-default">Submit</button>
+  <button type="submit" class="btn btn-primary">Salvar</button>
+  <button (click)="goList()" class="btn btn-default">Voltar</button>
 </form>
 
-<button (click)="goList()">Voltar</button>

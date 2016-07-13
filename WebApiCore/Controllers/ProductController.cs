@@ -25,9 +25,9 @@ namespace WebApiCore.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Product Get(int id)
         {
-            return "value";
+            return _dbContext.Products.FirstOrDefault(prod => prod.Id == id);
         }
 
         // POST api/values

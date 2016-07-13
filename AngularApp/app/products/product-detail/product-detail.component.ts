@@ -11,21 +11,38 @@ import { ProductService } from "../shared/product.service";
     templateUrl: "product-detail.component.html"}
 )
 export class ProductDetailComponent implements OnInit {
+    public erro: string;
+    public sucesso: string;
     private product: Product;
 
     constructor(private routeParams: RouteParams, private productService: ProductService, private router: Router) { }
     public ngOnInit() {
         this.product = new Product();
-        let idProduct = <number> <any> this.routeParams.get("id");
-        this.productService.getProduct(idProduct).
-        subscribe(data => this.product = data, error => console.log(error));
+        let idProduct: number = <number> <any> this.routeParams.get("id");
+        if (idProduct != 0) {
+            this.productService.getProduct(idProduct).
+            subscribe(data => this.product = data, error => this.onError(error));
+        }
     }
     public goList(): void {
         this.router.navigate(["Product"]);
     }
-    public onSubmit(): void{
+    public onSubmit(): void {
         this.product.id = <number> <any> this.routeParams.get("id");
-        this.productService.postProduct(this.product).
-        subscribe(data => console.log(data), error => console.log(error));
+        if (this.product.id === 0) {
+            this.productService.postProduct(this.product).
+            subscribe(data => this.onSucess(data),
+            error => this.onError(error));
+        }else {
+            this.productService.putProduct(this.product.id, this.product).
+            subscribe(data => this.onSucess(data),
+            error => this.onError(error));
+        }
+    }
+    private onError(erro): void {
+        this.erro = erro;
+    }
+    private onSucess(sucesso): void {
+        this.sucesso = sucesso;
     }
 }

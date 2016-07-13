@@ -24,7 +24,18 @@ export class ProductComponent implements OnInit {
     public onEdit(prod: Product){
         this.router.navigate(["ProductDetail", {id: prod.id}]);
     }
-    public onDelete(prod: Product){
-        console.log("Delete Component: " + JSON.stringify(prod));
+    public onDelete(prod: Product) {
+         this.productService.deleteProduct(prod.id)
+            .subscribe(data => this.okDelete(data, prod), error => console.log(error));
     }
+    public onNew() {
+        this.router.navigate(["ProductDetail", {id: 0}]);
+    }
+    private okDelete(data, prod: Product){
+        let index = this.products.indexOf(prod, 0);
+        if (index > -1) {
+            this.products.splice(index, 1);
+        }
+    }
+
 }

@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Http, Headers } from "@angular/http";
 import { Observable } from "rxjs/Observable";
-import { Product } from './product.model';
+import { Product } from "./product.model";
 import "rxjs/Rx";
 
 @Injectable()
@@ -21,8 +21,20 @@ export class ProductService {
             .map(res => res.json())
             .catch(this.throwError);
     }
-    public postProduct(product : Product) {
-        return this.http.post(this.apiUrl + "product", JSON.stringify(product),{headers: this.headers})
+    public postProduct(product: Product) {
+        return this.http.post(this.apiUrl + "product", JSON.stringify(product),
+        {headers: this.headers})
+            .map(res => res)
+            .catch(this.throwError);
+    }
+    public putProduct(id: number, product: Product) {
+        return this.http.put(this.apiUrl + "product/:id".replace(":id", id.toString()), JSON.stringify(product),
+         {headers: this.headers})
+            .map(res => res)
+            .catch(this.throwError);
+    }
+    public deleteProduct(id: number) {
+        return this.http.delete(this.apiUrl + "product/:id".replace(":id", id.toString()), {headers: this.headers})
             .map(res => res)
             .catch(this.throwError);
     }

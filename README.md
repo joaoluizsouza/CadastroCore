@@ -3,13 +3,16 @@ Teste Angular 2
 
 
 AngularApp
-* 1) npm install 
-* 2) npm run typings install
-* 3) npm start
-
+<ol>
+<li>npm install </li>
+<li>npm run typings install</li>
+<li>npm start</li>
+</ol>
 
 
 WebApiCore
-* 1) dotnet restore
-* 2) dotnet build
-* 3) dotnet run
+<ol>
+<li>dotnet restore</li>
+<li>dotnet build</li>
+<li>dotnet build</li>
+</ol>

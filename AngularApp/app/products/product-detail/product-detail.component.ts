@@ -29,7 +29,7 @@ export class ProductDetailComponent implements OnInit {
     }
     public onSubmit(): void {
         this.product.id = <number> <any> this.routeParams.get("id");
-        if (this.product.id === 0) {
+        if (this.product.id == 0) {
             this.productService.postProduct(this.product).
             subscribe(data => this.onSucess(data),
             error => this.onError(error));

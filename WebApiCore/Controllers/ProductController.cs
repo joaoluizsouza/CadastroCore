@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -19,16 +18,18 @@ namespace WebApiCore.Controllers
 
         // GET api/product
         [HttpGet]
-        public IEnumerable<Product> Get()
+        public IActionResult Get()
         {
-            return _dbContext.Products.ToList();
+            return Ok(_dbContext.Products) ;
         }
 
-        // GET api/values/5
         [HttpGet("{id}")]
-        public Product Get(int id)
+        public IActionResult Get(int id)
         {
-            return _dbContext.Products.FirstOrDefault(prod => prod.Id == id);
+            var prod = _dbContext.Products.FirstOrDefault(p => p.Id == id); 
+            if (prod != null)
+                return Ok(prod);
+            return NotFound();                
         }
 
         // POST api/values
